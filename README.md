@@ -1,5 +1,4 @@
 # vue-x6
-<<<<<<< HEAD
 
 ## Project setup
 ```
@@ -25,4 +24,3 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 =======
 x6的vue实践，欢迎star
->>>>>>> 896aad780a762e3eba3eb072bf81a9a9d6e4cb73
