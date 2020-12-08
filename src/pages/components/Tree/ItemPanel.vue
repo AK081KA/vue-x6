@@ -1,7 +1,7 @@
 <template>
 <!-- overflow-y:auto;max-height:100%;max-width:100%;padding-bottom:30px;user-select: none;width:294px; -->
   <a-tree :treeData="nodeItems" style="height:100%;background-color:#F2F2F2;overflow-y: auto;  max-height: 100%;max-width:100%;padding-bottom:30px;user-select: none;"
-      @dragstart="dragstart" :draggable="true" @dragover="dragover">
+      @dragstart="dragstart" :draggable="true" @dragover="dragover" :multiple="false">
       <a-icon slot="meh" type="smile-o" />
       <template slot="title" slot-scope="{title}">
         <div class="item item-flow-rect" style="user-select:none;">{{title}}</div>
@@ -37,7 +37,7 @@ export default {
   methods: {
 
     dragstart({event, node}) {
-      this.seletedItem = null
+      this.seletedItem=null
       this.findChildByKey(this.nodeItems, node.dataRef.key)
         if (this.seletedItem) {
            let node =new FlowChartRect( {
@@ -49,10 +49,10 @@ export default {
               isAdd:true
             })
             this.dnd.start(node, event)
+            
         }
     },
     dragover({event,node}){
-
     },
     findChildByKey(data, key) {
       data.some((item, index) => {

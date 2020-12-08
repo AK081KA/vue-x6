@@ -20,13 +20,13 @@ export default [
           children: [],
           pid: 51,
           title: '节点C',
-          key: 85397858222081,
+          key: 85397858222082,
         },
         {
           children: [],
           pid: 51,
           title: '节点D',
-          key: 85397858222082,
+          key: 85397858222083,
         },
       ],
       title: '父节点A',
@@ -37,12 +37,14 @@ export default [
       isSingle: true,
       category: 0,
       nodeType: 0,
+      key: 52,
     },
     {
       title: '结束',
       isSingle: true,
       isOutSource: true,
       nodeType: 1,
+      key: 53,
     }
   ]
   
