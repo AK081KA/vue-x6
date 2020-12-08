@@ -24,3 +24,4 @@ yarn lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 =======
 x6的vue实践，欢迎star
+地址：<a href="https://ak081ka.github.io/vue-x6/index.html">在线demo</a>
