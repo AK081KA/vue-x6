@@ -8,10 +8,10 @@
         <a-form-item label="名称：" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <a-input style="font-size:12px" :disabled="readOnly"  @change="changeLabel" v-model="formModel.label" />
         </a-form-item>
-        <a-form-item label="字体颜色：" :labelCol="labelCol" :wrapperCol="wrapperCol">
+        <a-form-item label="颜色：" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <ColorPicker   :disabled="readOnly" @update="changeColor" v-model="formModel.fontColor"/>
         </a-form-item>
-        <a-form-item label="字体大小：" :labelCol="labelCol" :wrapperCol="wrapperCol">
+        <a-form-item label="大小：" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <a-slider :min="8" :max="16"  :disabled="readOnly" @change="changeFontSize" v-model="formModel.fontSize"/>
         </a-form-item>
         <a-form-item label="背景色：" :labelCol="labelCol" :wrapperCol="wrapperCol">

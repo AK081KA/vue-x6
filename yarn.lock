@@ -22,10 +22,10 @@
   resolved "https://registry.npm.taobao.org/@ant-design/icons/download/@ant-design/icons-2.1.1.tgz#7b9c08dffd4f5d41db667d9dbe5e0107d0bd9a4a"
   integrity sha1-e5wI3/1PXUHbZn2dvl4BB9C9mko=
 
-"@antv/x6@^1.3.6":
-  version "1.3.6"
-  resolved "https://registry.npm.taobao.org/@antv/x6/download/@antv/x6-1.3.6.tgz#62a42479ef44fdb8e257190dc5eb6351972bdfb9"
-  integrity sha1-YqQkee9E/bjiVxkNxetjUZcr37k=
+"@antv/x6@^1.3.10":
+  version "1.3.10"
+  resolved "https://registry.npm.taobao.org/@antv/x6/download/@antv/x6-1.3.10.tgz#b527359aafed66380323af36a0b90d4e1bff8f11"
+  integrity sha1-tSc1mq/tZjgDI682oLkNThv/jxE=
   dependencies:
     csstype "^3.0.3"
     jquery "^3.5.1"
@@ -8799,11 +8799,6 @@ vue-ref@^1.0.4:
   resolved "https://registry.npm.taobao.org/vue-ref/download/vue-ref-1.0.6.tgz#b9b3d7d0e290ee2fd3d50d5d7bdac520806cb265"
   integrity sha1-ubPX0OKQ7i/T1Q1de9rFIIBssmU=
 
-vue-router@^3.2.0:
-  version "3.4.9"
-  resolved "https://registry.npm.taobao.org/vue-router/download/vue-router-3.4.9.tgz?cache=0&sync_timestamp=1607347184356&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-router%2Fdownload%2Fvue-router-3.4.9.tgz#c016f42030ae2932f14e4748b39a1d9a0e250e66"
-  integrity sha1-wBb0IDCuKTLxTkdIs5odmg4lDmY=
-
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
   resolved "https://registry.npm.taobao.org/vue-style-loader/download/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"
@@ -8829,11 +8824,6 @@ vue@^2.6.11:
   version "2.6.12"
   resolved "https://registry.npm.taobao.org/vue/download/vue-2.6.12.tgz?cache=0&sync_timestamp=1606946259454&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue%2Fdownload%2Fvue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha1-9evU+mvShpQD4pqJau1JBEVskSM=
-
-vuex@^3.4.0:
-  version "3.6.0"
-  resolved "https://registry.npm.taobao.org/vuex/download/vuex-3.6.0.tgz?cache=0&sync_timestamp=1606318256705&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvuex%2Fdownload%2Fvuex-3.6.0.tgz#95efa56a58f7607c135b053350833a09e01aa813"
-  integrity sha1-le+lalj3YHwTWwUzUIM6CeAaqBM=
 
 warning@^3.0.0:
   version "3.0.0"

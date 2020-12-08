@@ -3,10 +3,7 @@
     <a-layout id='app' class="wrap" style="height:100%">
       <a-layout-header class="header">
          <div class="toolbar">
-            <ToolBar :title="flow_title" :allowCopyPaste="flow_allowCopyPaste" :allowReUndo="flow_allowReUndo" 
-        :allowClear="flow_allowClear" :allowItemAddGroup="flow_allowItemAddGroup" :allowAddChild="flow_allowAddChild"
-        :allowOrAnyGroup="flow_allowOrAnyGroup" :allowGroupOrAny="flow_allowGroupOrAny" :allowAnyGroup="flow_allowAnyGroup" :allowUnGroup="flow_allowUnGroup" :allowGroup="flow_allowGroup" :allowOrGroup="flow_allowOrGroup"
-        @flowSaveFunc="flowSaveFunc" @flowCancleFunc="flowCancleFunc" @orFunc="orFunc"/>
+            <ToolBar :title="flow_title" @flowSaveFunc="flowSaveFunc" @flowCancleFunc="flowCancleFunc" @orFunc="orFunc"/>
           </div>
       </a-layout-header>
       <a-layout style="display: flex;">
@@ -15,7 +12,6 @@
         </a-layout-sider>
         <a-layout style="height:100%;" ref="graph_content">
          <a-layout-content  :style="{ background: '#E0E6EF',  margin: 0, minHeight: '280px',display:'flex' }">
-           <!-- padding: '24px', -->
            <div ref="leftSideBtn" style="top:0;bottom:0;height:90px;width:12px;margin:auto 0;z-index:10;"
             @click="collapsedLeftMenu()" >
             <div style="height:60px;width:13px;cursor:pointer;" class="flexHorilanLayout" >
@@ -60,36 +56,6 @@ export default {
   },
   props: [
     'readOnly',
-    'toggleReadOnly',
-    'chartData',
-    'chartDataNodeItems',
-    'allowUnLinked',
-    'allowLinkSelf',
-    'allowCopyPaste',
-    'allowReUndo',
-    'allowOrAnyGroup',
-    'allowGroupOrAny',
-    'allowOrGroup',
-    "allowGroup",
-    'allowAnyGroup',
-    'allowItemRemoveGroup',
-    'allowItemAddGroup',
-    'showToolbar',
-    'showMiniMap',
-    'leftwidth',
-    'rightwidth',
-    'canvaswidth',
-    'isNeedStart',
-    'isNeedEnd',
-    'isNeedSort',
-    'allowAdd',
-    'allowClear',
-    'allowLinkMore',
-    'title',
-    'allowUnCommonGroup',
-    'allowUnGroup',
-    'allowAddChild',
-    'transform'
   ],
   data(){
     return{
@@ -98,40 +64,15 @@ export default {
       graph:null,
       dnd:null,
       flow_title:this.title===undefined?'流程设计':this.title,
-      flow_isNeedStart: this.isNeedStart,
-      flow_isNeedEnd: this.isNeedStart,
-      flow_allowUnLinked:this.allowUnLinked,
-      flow_allowLinkSelf:this.allowLinkSelf,
-      flow_allowCopyPaste:this.allowCopyPaste,
-      flow_allowReUndo:this.allowReUndo,
-      flow_showToolbar:this.showToolbar,
-      flow_showMiniMap:this.showMiniMap,
-      flow_allowOrAnyGroup:this.allowOrAnyGroup,
-      flow_allowGroupOrAny:this.allowGroupOrAny==undefined?false:this.allowGroupOrAny,
-      flow_allowOrGroup:this.allowOrGroup,
-      flow_allowGroup:this.allowGroup,
-      flow_allowAnyGroup:this.allowAnyGroup,
-      flow_allowUnGroup:this.allowUnGroup===undefined?true:this.allowUnGroup,
-      flow_allowAddChild:this.allowAddChild===undefined?true:this.allowAddChild,
-      flow_allowItemRemoveGroup:this.allowItemRemoveGroup,
-      flow_allowItemAddGroup:this.allowItemAddGroup,
-      flow_canvaswidth:this.canvaswidth,
-      flow_isNeedSort:this.isNeedSort,
-      flow_allowAdd:this.allowAdd,
-      flow_allowClear:this.allowClear,
-      flow_allowLinkMore:this.allowLinkMore===undefined?false:this.allowLinkMore,
-      flow_allowUnCommonGroup:this.allowUnCommonGroup===undefined?false:this.allowUnCommonGroup,
     }
   },
 
   created(){
-    //console.info('1231213')
      this.$nextTick(()=>{
        this.graph = FlowGraph.init();
        this.dnd = new Dnd({ target: this.graph, animation: true,validateNode:this.validate,getDropNode:this.dragNode})
        
        this.graph.on('edge:connected',(item)=>{
-          console.info('item>>>',item);
           //edge
           if(item.edge){
              //1. 处理模式
@@ -172,36 +113,6 @@ export default {
            }
        })
        this.graph.on('edge:removed',(item)=>{
-         console.info('item>>>',item);
-         //or 连线删除都删除
-         if(item.cell.getData()?.lineType==100){
-           let source_id = item.cell.getSourceCellId()
-           let target_id = item.cell.getTargetCellId()
-           let source = this.graph.getCell(source_id)
-           let target = this.graph.getCell(target_id)
-           //1.起点模式
-           if(source.getData().groupType==100){
-             //找到组内的点
-             let groupIds = []
-             this.graph.getNodes().filter(t=>t.parent ==source.parent).forEach(k=>{
-               groupIds.push(k.id)
-             })
-             //找到复合条件的linetype
-             let cells = this.graph.getEdges().filter(p=>groupIds.indexOf(p.source.cell)>=0 && p.target.cell==target_id && p.getData().lineType==100)
-             this.graph.removeCells(cells)
-           }
-           //2.终点模式
-            else if(target.getData().groupType==100){
-             //找到组内的点
-             let groupIds = []
-             this.graph.getNodes().filter(t=>t.parent ==target.parent).forEach(k=>{
-               groupIds.push(k.id)
-             })
-             //找到复合条件的linetype
-             let cells = this.graph.getEdges().filter(p=>groupIds.indexOf(p.target.cell)>=0 && p.source.cell==source_id  && p.getData().lineType==100)
-             this.graph.removeCells(cells)
-           }
-         }
        })
        this.resizeFn()
      })
@@ -273,7 +184,6 @@ export default {
           console.info('parent',item.getParent())
         })
       }
-      //当前版本问题
       return node.clone()
     },
     validate(node){
@@ -329,19 +239,6 @@ export default {
 </script>
 
 <style lang="less">
-// html,
-// body {
-//   margin: 0;
-//   padding: 0;
-// }
-// #app {
-//   font-family: Avenir, Helvetica, Arial, sans-serif;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-//   text-align: center;
-//   color: #2c3e50;
-//   min-height: 100vh;
-// }
 .toolbar {
   // display: flex;
   align-items: center;

@@ -39,11 +39,11 @@ export default class FlowGraph {
         rubberband: true,
         movable: true,
         showNodeSelectionBox: true,
-        // filter: (node) => {
-        //   const data = node.getData() as any
-        //   console.info('datadata', data)
-        //   return !(data && data.parent)
-        // },
+        filter: (node) => {
+          const data = node.getData() as any
+          //console.info('datadata', data)
+          return !(data && data.parent)
+        },
       },
       connecting: {
         anchor: 'center',

@@ -39,23 +39,9 @@ export default {
     dragstart({event, node}) {
       this.seletedItem = null
       this.findChildByKey(this.nodeItems, node.dataRef.key)
-      console.info('进来了啊2>>>>>', this.seletedItem)
         if (this.seletedItem) {
-          if (
-            this.seletedItem.children &&
-            this.seletedItem.children.length > 0
-          ) {
-            // this.page.beginAdd('node', {
-            //   label:node.dataRef.title,
-            //   shape: this.page.currentShape,
-            //   data: this.seletedItem,
-            //   isNeedDel: true,
-            //   width: 81,
-            //   height: 45,
-            //   isAdd:true
-            // })
-            let node =new FlowChartRect( {
-              label:'测试',
+           let node =new FlowChartRect( {
+              label:this.seletedItem.title,
               data: this.seletedItem,
               isNeedDel: true,
               width: 81,
@@ -63,28 +49,6 @@ export default {
               isAdd:true
             })
             this.dnd.start(node, event)
-          } else {
-            // this.page.beginAdd('node', {
-            //   label: node.dataRef.title,
-            //   color: '#40E0D0',
-            //   shape: this.page.currentShape,
-            //   data: this.seletedItem,
-            //   width: 81,
-            //   height: 45,
-            //   isAdd:true,
-            //   id:'node_'+ generateUUID()
-            // })
-            let node =new FlowChartRect( {
-              label:'测试',
-             
-              data: this.seletedItem,
-              isNeedDel: true,
-              width: 81,
-              height: 45,
-              isAdd:true
-            })
-            this.dnd.start(node, event)
-          }
         }
     },
     dragover({event,node}){
