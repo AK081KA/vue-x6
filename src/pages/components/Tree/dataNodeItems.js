@@ -30,21 +30,21 @@ export default [
         },
       ],
       title: '父节点A',
-      key: 51,
+      key: 853978582220834,
     },
     {
       title: '开始',
       isSingle: true,
       category: 0,
       nodeType: 0,
-      key: 52,
+      key: 85397858222085,
     },
     {
       title: '结束',
       isSingle: true,
       isOutSource: true,
       nodeType: 1,
-      key: 53,
+      key: 85397858222086,
     }
   ]
   
