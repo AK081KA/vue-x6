@@ -6,8 +6,8 @@
     <div style=" display: flex;flex: 3;">
      
       <ToolbarButton  command="delete"  label="删除" text="&#xe624;"  @handleEvent="()=>{this.$emit('delFunc')}"/>
-      <ToolbarButton   label="放大" text="&#xe62b;" />
-      <ToolbarButton   label="缩小" text="&#xe62e;"  />
+      <ToolbarButton  command="zoomIn" label="放大" text="&#xe62b;" />
+      <ToolbarButton  command="zoomOut" label="缩小" text="&#xe62e;"  />
       <ToolbarButton   label="全屏" text="&#xe629;"  />
       <ToolbarButton   label="原大小" text="&#xe627;"  />
       <ToolbarButton  command="zoomToFit" label="自适应" text="&#xe625;" />

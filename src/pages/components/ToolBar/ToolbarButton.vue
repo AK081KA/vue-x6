@@ -60,6 +60,8 @@ export default {
         case 'zoomToFit':
         case 'save':
         case 'cancle':
+        case 'zoomIn':
+        case 'zoomOut':
           this.newGroupEnabled=false
           break
           default:
@@ -91,6 +93,12 @@ export default {
         break
       case 'print':
         graph.printPreview()
+        break
+      case 'zoomIn':
+        graph.zoom(0.1)
+        break
+      case 'zoomOut':
+        graph.zoom(-0.1)
         break
       default:
         break
